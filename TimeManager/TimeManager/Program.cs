@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace TimeManager
 {
@@ -6,8 +7,62 @@ namespace TimeManager
     {
         static void Main(string[] args)
         {
-            // Time management app
-            // Użytkownik zostaje przywitany
+            MenuActionService actionService = new MenuActionService();
+            actionService = Initialize(actionService);
+            ProjectService projectService = new ProjectService();
+            TaskService taskService = new TaskService();
+            WorkLogService workLogService = new WorkLogService();
+            var repeat = true;
+            Console.WriteLine("Welcome to the Time Managment App");
+
+            while(repeat)
+            {
+                Console.WriteLine("Please let me know what you want to do: ");
+                var mainMenu = actionService.GetMenuActionsByMenuName("Main");
+                for (int i = 0; i < mainMenu.Count; i++)
+                {
+                    Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
+                }
+
+                var operation = Console.ReadKey();
+                Console.WriteLine("------------------------------------");
+                switch (operation.KeyChar)
+                {
+                    case '1':
+                        Console.Clear();
+                        Console.WriteLine("Projects operations");
+                        break;
+
+                    case '2':
+                        Console.Clear();
+                        Console.WriteLine("Tasks operations");
+                        break;
+
+                    case '3':
+                        Console.Clear();
+                        Console.WriteLine("Worklogs operations");
+                        break;
+
+                    case '4':
+                        Console.Clear();
+                        Console.WriteLine("Generating reports");
+                        break;
+
+                    case '5':
+                        Console.Clear();
+                        Console.WriteLine("Close application");
+                        repeat = false;
+                        break;
+
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("You have chosen wrong operation");
+                        Thread.Sleep(500);
+                        Console.Clear();
+                        break;
+                }
+            }
+
             // Użytkownik dostaje możliwość wyboru akcji
 
             // 1. Operacje na projektach (Project)
@@ -108,5 +163,55 @@ namespace TimeManager
 
             // 5. Zamknij
         }
+
+        private static MenuActionService Initialize(MenuActionService actionService)
+        {
+            actionService.AddNewAction(1, "Projects", "Main");
+            actionService.AddNewAction(2, "Tasks", "Main");
+            actionService.AddNewAction(3, "WorkLogs", "Main");
+            actionService.AddNewAction(4, "Reports", "Main");
+            actionService.AddNewAction(5, "Exit", "Main");
+
+            actionService.AddNewAction(1, "Add new project", "Project");
+            actionService.AddNewAction(2, "Remove project", "Project");
+            actionService.AddNewAction(3, "Update project", "Project");
+            actionService.AddNewAction(4, "Details", "Project");
+            actionService.AddNewAction(5, "Exit", "Project");
+
+            actionService.AddNewAction(1, "ExternalId", "ProjectUpdate");
+            actionService.AddNewAction(2, "Name", "ProjectUpdate");
+            actionService.AddNewAction(3, "Description", "ProjectUpdate");
+            actionService.AddNewAction(4, "State", "ProjectUpdate");
+            actionService.AddNewAction(5, "Exit", "ProjectUpdate");
+
+            actionService.AddNewAction(1, "Add new task", "Task");
+            actionService.AddNewAction(2, "Remove task", "Task");
+            actionService.AddNewAction(3, "Update task", "Task");
+            actionService.AddNewAction(4, "Details", "Task");
+            actionService.AddNewAction(5, "Exit", "Task");
+
+            actionService.AddNewAction(1, "Name", "TaskUpdate");
+            actionService.AddNewAction(2, "Description", "TaskUpdate");
+            actionService.AddNewAction(3, "EstimatedHours", "TaskUpdate");
+            actionService.AddNewAction(4, "Exit", "TaskUpdate");
+
+            actionService.AddNewAction(1, "Add new log", "Worklog");
+            actionService.AddNewAction(2, "Remove log", "Worklog");
+            actionService.AddNewAction(3, "Update log", "Worklog");
+            actionService.AddNewAction(4, "Details", "Worklog");
+            actionService.AddNewAction(5, "Exit", "Worklog");
+
+            actionService.AddNewAction(1, "Project", "WorklogUpdate");
+            actionService.AddNewAction(2, "Task", "WorklogUpdate");
+            actionService.AddNewAction(3, "Date from", "WorklogUpdate");
+            actionService.AddNewAction(4, "Date to", "WorklogUpdate");
+            actionService.AddNewAction(5, "Presence", "WorklogUpdate");
+            actionService.AddNewAction(6, "Time spent", "WorklogUpdate");
+            actionService.AddNewAction(7, "Comment", "WorklogUpdate");
+            actionService.AddNewAction(8, "Exit", "WorklogUpdate");
+
+            return actionService;
+        }
+
     }
 }
