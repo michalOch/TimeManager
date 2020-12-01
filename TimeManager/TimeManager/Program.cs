@@ -29,8 +29,61 @@ namespace TimeManager
                 switch (operation.KeyChar)
                 {
                     case '1':
-                        Console.Clear();
-                        Console.WriteLine("Projects operations");
+                        bool repatProject = true;
+                        while(repatProject)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please let me know what you want to do: ");
+                            var projectMenu = actionService.GetMenuActionsByMenuName("Project");
+                            for (int i = 0; i < projectMenu.Count; i++)
+                            {
+                                Console.WriteLine($"{projectMenu[i].Id}. {projectMenu[i].Name}");
+                            }
+                            var projectOperation = Console.ReadKey();
+
+                            Console.WriteLine("------------------------------------");
+                            switch (projectOperation.KeyChar)
+                            {
+                                case '1':
+                                    Console.Clear();
+                                    Console.WriteLine("Add");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '2':
+                                    Console.Clear();
+                                    Console.WriteLine("Remove");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '3':
+                                    Console.Clear();
+                                    Console.WriteLine("Update");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '4':
+                                    Console.Clear();
+                                    Console.WriteLine("Details");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '5':
+                                    Console.Clear();
+                                    Console.WriteLine("Close application");
+                                    repatProject = false;
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    break;
+
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("You have chosen wrong operation");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    break;
+                            }
+                        }
                         break;
 
                     case '2':
