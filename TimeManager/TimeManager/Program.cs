@@ -46,8 +46,10 @@ namespace TimeManager
                             {
                                 case '1':
                                     Console.Clear();
-                                    Console.WriteLine("Add");
-                                    Console.ReadKey();
+                                    var id = projectService.AddNewProject();
+                                    Console.Clear();
+                                    Console.WriteLine($"You have create new project with id: {id}");
+                                    Thread.Sleep(1000);
                                     break;
 
                                 case '2':
@@ -70,9 +72,8 @@ namespace TimeManager
 
                                 case '5':
                                     Console.Clear();
-                                    Console.WriteLine("Close application");
+                                    Console.WriteLine("Closing...");
                                     repatProject = false;
-                                    Console.ReadKey();
                                     Console.Clear();
                                     break;
 
