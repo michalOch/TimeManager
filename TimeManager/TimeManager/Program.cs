@@ -29,7 +29,7 @@ namespace TimeManager
                 switch (operation.KeyChar)
                 {
                     case '1':
-                        bool repatProject = true;
+                        bool repeatProject = true;
                         while(repatProject)
                         {
                             Console.Clear();
@@ -123,17 +123,6 @@ namespace TimeManager
                         break;
                 }
             }
-
-
-            //  1.2 Usunięcie projektu (i związanych z nim tasków)
-            //      1.3.1 Wprowadzenie Id lub nazwy projektu
-            //      1.3.2 Usunięcie danego projektu razem z należącymi do niego stanami
-
-            //  1.4 Lista wszystkich projektów 
-            //      1.5.1 Wprowadzenie Id lub nazwy projektu
-            //      1.5.2 Wyświetlenie listy projektów wraz z taskami (listą tasków)
-
-
 
             // 2. Operacja na zadaniach (Task)
             //  2.1 Tworzenie nowego zadania do danego projektu
