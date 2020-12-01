@@ -80,7 +80,7 @@ namespace TimeManager
                                 case '5':
                                     Console.Clear();
                                     Console.WriteLine("Closing...");
-                                    repatProject = false;
+                                    repeatProject = false;
                                     Console.Clear();
                                     break;
 
