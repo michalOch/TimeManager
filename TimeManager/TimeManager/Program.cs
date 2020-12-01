@@ -121,14 +121,18 @@ namespace TimeManager
 
                                 case '2':
                                     Console.Clear();
-                                    Console.WriteLine("Remove task");
+                                    var taskIdToRemove = Helpers.GetIntNumber("Please enter task id");
+                                    taskService.Remove(taskIdToRemove);
+                                    Console.WriteLine($"Task with id: {taskIdToRemove} has been successfully removed");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
 
                                 case '3':
+
                                     Console.Clear();
-                                    Console.WriteLine("Show details");
+                                    var taskIdToShow = Helpers.GetIntNumber("Please enter task id");
+                                    taskService.ShowDetails(taskIdToShow);
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;

@@ -33,5 +33,34 @@ namespace TimeManager
             counter++;
             return newTask.Id;
         }
+
+        public void Remove(int id)
+        {
+            Task taskToRemove = null;
+            foreach (var task in Tasks)
+            {
+                if (task.Id == id)
+                    taskToRemove = task;
+            }
+            if (taskToRemove != null)
+                Tasks.Remove(taskToRemove);
+            else
+                Console.WriteLine("Task not found");
+        }
+
+        public void ShowDetails(int id)
+        {
+            Task existingTask = null;
+            foreach (var task in Tasks)
+            {
+                if (task.Id == id)
+                    existingTask = task;
+            }
+
+            if (existingTask != null)
+                Console.WriteLine(existingTask);
+            else
+                Console.WriteLine("Task not found");
+        }
     }
 }
