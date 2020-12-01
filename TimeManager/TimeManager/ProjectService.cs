@@ -31,7 +31,7 @@ namespace TimeManager
             return newProject.Id;
         }
 
-        public void GetProjectDetails(int id)
+        public void ShowDetails(int id)
         {
             Project existingProject = null;
             foreach (var project in Projects)
@@ -42,6 +42,20 @@ namespace TimeManager
 
             if(existingProject != null)
                 Console.WriteLine(existingProject);
+            else
+                Console.WriteLine("Project not found");
+        }
+
+        public void Remove(int id)
+        {
+            Project projectToRemove = null;
+            foreach (var project in Projects)
+            {
+                if (project.Id == id)
+                    projectToRemove = project;
+            }
+            if (projectToRemove != null)
+                Projects.Remove(projectToRemove);
             else
                 Console.WriteLine("Project not found");
         }

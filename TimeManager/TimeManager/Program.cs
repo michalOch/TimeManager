@@ -48,25 +48,36 @@ namespace TimeManager
                                     Console.Clear();
                                     var id = projectService.AddNewProject();
                                     Console.Clear();
-                                    Console.WriteLine($"You have create new project with id: {id}");
-                                    Thread.Sleep(1000);
+                                    Console.WriteLine($"You have successfully create new project with id: {id}");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
                                     break;
 
                                 case '2':
                                     Console.Clear();
-                                    Console.WriteLine("Remove");
+                                    var projectIdToRemove = Helpers.GetIntNumber("Please enter project id");
+                                    projectService.Remove(projectIdToRemove);
+                                    Console.WriteLine($"Project with id: {projectIdToRemove} has been successfully removed");
+                                    Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
 
                                 case '3':
                                     Console.Clear();
-                                    var projectId = Helpers.GetIntNumber("Please enter project id");
-                                    projectService.GetProjectDetails(projectId);
-                                    Console.WriteLine("Press any key to go back...");
+                                    var projectIdToShow = Helpers.GetIntNumber("Please enter project id");
+                                    projectService.ShowDetails(projectIdToShow);
+                                    Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
 
                                 case '4':
+                                    Console.Clear();
+                                    Console.WriteLine("Show all projects");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '5':
                                     Console.Clear();
                                     Console.WriteLine("Closing...");
                                     repatProject = false;
@@ -117,10 +128,6 @@ namespace TimeManager
             //  1.2 Usunięcie projektu (i związanych z nim tasków)
             //      1.3.1 Wprowadzenie Id lub nazwy projektu
             //      1.3.2 Usunięcie danego projektu razem z należącymi do niego stanami
-
-            //  1.3 Szczególy danego projektu
-            //      1.4.1 Wprowadzenie Id lub nazwy projektu
-            //      1.4.2 Wyświetlenie Nazwy, Numeru Sap, i obecnego stanu projektu 
 
             //  1.4 Lista wszystkich projektów 
             //      1.5.1 Wprowadzenie Id lub nazwy projektu
@@ -206,7 +213,8 @@ namespace TimeManager
             actionService.AddNewAction(1, "Add new project", "Project");
             actionService.AddNewAction(2, "Remove project", "Project");
             actionService.AddNewAction(3, "Details", "Project");
-            actionService.AddNewAction(4, "Exit", "Project");
+            actionService.AddNewAction(4, "Show projects", "Project");
+            actionService.AddNewAction(5, "Exit", "Project");
 
             actionService.AddNewAction(1, "Add new task", "Task");
             actionService.AddNewAction(2, "Remove task", "Task");
