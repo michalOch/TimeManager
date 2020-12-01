@@ -33,13 +33,11 @@ namespace TimeManager
 
         public void GetProjectDetails(int id)
         {
-            Project existingProject = new Project();
+            Project existingProject = null;
             foreach (var project in Projects)
             {
                 if(project.Id == id)    
                     existingProject = project;
-                else 
-                    existingProject = null;
             }
 
             if(existingProject != null)
