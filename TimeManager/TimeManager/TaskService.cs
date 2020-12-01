@@ -62,5 +62,13 @@ namespace TimeManager
             else
                 Console.WriteLine("Task not found");
         }
+
+        public void ShowAll()
+        {
+            foreach (var task in Tasks)
+            {
+                Console.WriteLine(task);
+            }
+        }
     }
 }
