@@ -120,28 +120,19 @@ namespace TimeManager
             }
 
 
-            //  1.2 Modyfikacja projektu
-            //      1.2.1 Wprowadzenie Id lub nazwy projektu
-            //      1.2.2 Wyświetlenie szczegółow projektu
-            //      1.2.3 Wyświetlenie wyboru rzeczy do modyfikacji 
-            //              1 - Nazwa
-            //              2 - Numer SAP
-            //              3 - Opis projektu 
-            //              4 - Stan (Enum - Projektowanie, Składanie, Uruchomienie, Testy)
-            //              5 - Wróć
-            //      1.2.4 - W zależności od wyboru uzupełniamy dane pole
-
-            //  1.3 Usunięcie projektu (i związanych z nim tasków)
+            //  1.2 Usunięcie projektu (i związanych z nim tasków)
             //      1.3.1 Wprowadzenie Id lub nazwy projektu
             //      1.3.2 Usunięcie danego projektu razem z należącymi do niego stanami
 
-            //  1.4 Szczególy danego projektu
+            //  1.3 Szczególy danego projektu
             //      1.4.1 Wprowadzenie Id lub nazwy projektu
             //      1.4.2 Wyświetlenie Nazwy, Numeru Sap, i obecnego stanu projektu 
 
-            //  1.5 Lista wszystkich projektów z taskami do tych projektów
+            //  1.4 Lista wszystkich projektów 
             //      1.5.1 Wprowadzenie Id lub nazwy projektu
             //      1.5.2 Wyświetlenie listy projektów wraz z taskami (listą tasków)
+
+
 
             // 2. Operacja na zadaniach (Task)
             //  2.1 Tworzenie nowego zadania do danego projektu
@@ -152,21 +143,18 @@ namespace TimeManager
             //      2.1.4 Stan zadania ustalony inicjalnie na nowe 
             //      2.1.5 Zwrócenie Id taska i wyświetlenie podsumowania
 
-            //  2.2 Modyfikacja zadania
-            //      2.2.1 Wprowadzenie Id zadania            
-            //      2.2.2 Wyświetlenie szczegółow zadania
-            //      2.2.3 Wyświetlenie wyboru rzeczy do modyfikacji 
-            //              1 - Projekt
-            //              2 - Nazwa
-            //              3 - Opis 
-            //              4 - Estymacja godzin
-            //              5 - Stan (Nowe, Aktywne, Zamknięte - new, active, closed)
-            //              6 - Wróć
-            //      2.2.4 - W zależności od wyboru uzupełniamy dane pole
-
-            //  2.3 Usunięcie zadania
+            //  2.2 Usunięcie zadania
             //      2.3.1 Wprowadzenie Id zadania            
             //      2.3.2 Usunięcie zadania o wskazanym Id
+
+            //  2.3 Szczególy danego zadania
+            //      1.4.1 Wprowadzenie Id lub nazwy projektu
+            //      1.4.2 Wyświetlenie szczegółow zadania 
+
+            //  2.4 Lista wszystkich tasków dla danego id projektu 
+            //      1.5.1 Wprowadzenie Id lub nazwy projektu
+            //      1.5.2 Wyświetlenie listy tasków dla danego projektu
+
 
             // 3. Operacje na wpisach godzinowych (WorkLog)
             //  3.1 Dodaj nowy wpis
@@ -183,31 +171,32 @@ namespace TimeManager
             //      3.2.1 Wprowadzenie Id wpisu 
             //      3.2.2 Usuń dany wpis
 
-            //  3.3 Modyfikuj dany wpis
-            //      3.3.1 Wprowadzenie Id wpisu            
-            //      3.3.2 Wyświetlenie szczegółow wpisu
-            //      3.3.3 Wyświetlenie wyboru rzeczy do modyfikacji 
-            //              1 - Projekt
-            //              2 - Zadanie
-            //              3 - Datę 
-            //              4 - Obecność
-            //              5 - Czas spędzony na zadaniu
-            //              6 - Komentarz
-            //              7 - Wróc
-            
-            //      3.3.4 - W zależności od wyboru uzupełniamy dane pole
+            //  3.3 Szczególy danego wpisu
+            //      1.4.1 Wprowadzenie Id wpisu
+            //      1.4.2 Wyświetlenie szczegółow zadania 
 
-            //  3.4 Pokaż wszystkie wpisy dla danego projektu
-            //  3.5 Pokaż wszystkie wpisy dla danego zadania
-            //  3.6 Pokaż wszystkie wpisy dla danego projektu
+            //  3.4 Lista wszystkich wpisów dla danego projektu
+            //      1.5.1 Wprowadzenie Id lub nazwy projektu
+            //      1.5.2 Wyświetlenie listy wpisów
+
+            //  3.5 Lista wszystkich wpisów dla danego zadania
+            //      1.5.1 Wprowadzenie Id zadania
+            //      1.5.2 Wyświetlenie listy wpisów
+
 
             // 4. Raporty
-            //  4.1 Ilosć godzin per projekt
-            //  4.2 Ilość godzin per okres czasu (np. w danym miesiącu)
-            //  4.3 Róznice między estymacją a wykonaniem zadania - do oceny efektywnośći pracownika itp.
-            //  4.4 Projekty i taski
-            //  4.5 Projekty i task i podsumowanie szczegółowe
-            //  4.6 Taski w projekcie procentowo
+
+            //  4.1 Wyświetlnie wpisów dla danego miesiąca
+
+            //  4.2 Ilość godzin przepracowna w danym miesiacu (w zadanym okresie czasu)
+            //  4.2 Wypłata netto dla danego miesiaca (double stawka godzinowa)
+
+            //  4.3 Ilość godzin przepracowna nad danym projektem (id projektu)
+            //  4.4 Lista wszystkich wpisów dla danego projektu
+
+            //  4.5 Ilość godzin przepracowna nad danym zadaniem 
+            //  4.4 Lista wszystkich wpisów dla danego zadania
+
 
             // 5. Zamknij
         }
@@ -226,22 +215,11 @@ namespace TimeManager
             actionService.AddNewAction(4, "Details", "Project");
             actionService.AddNewAction(5, "Exit", "Project");
 
-            actionService.AddNewAction(1, "ExternalId", "ProjectUpdate");
-            actionService.AddNewAction(2, "Name", "ProjectUpdate");
-            actionService.AddNewAction(3, "Description", "ProjectUpdate");
-            actionService.AddNewAction(4, "State", "ProjectUpdate");
-            actionService.AddNewAction(5, "Exit", "ProjectUpdate");
-
             actionService.AddNewAction(1, "Add new task", "Task");
             actionService.AddNewAction(2, "Remove task", "Task");
             actionService.AddNewAction(3, "Update task", "Task");
             actionService.AddNewAction(4, "Details", "Task");
             actionService.AddNewAction(5, "Exit", "Task");
-
-            actionService.AddNewAction(1, "Name", "TaskUpdate");
-            actionService.AddNewAction(2, "Description", "TaskUpdate");
-            actionService.AddNewAction(3, "EstimatedHours", "TaskUpdate");
-            actionService.AddNewAction(4, "Exit", "TaskUpdate");
 
             actionService.AddNewAction(1, "Add new log", "Worklog");
             actionService.AddNewAction(2, "Remove log", "Worklog");
@@ -249,14 +227,13 @@ namespace TimeManager
             actionService.AddNewAction(4, "Details", "Worklog");
             actionService.AddNewAction(5, "Exit", "Worklog");
 
-            actionService.AddNewAction(1, "Project", "WorklogUpdate");
-            actionService.AddNewAction(2, "Task", "WorklogUpdate");
-            actionService.AddNewAction(3, "Date from", "WorklogUpdate");
-            actionService.AddNewAction(4, "Date to", "WorklogUpdate");
-            actionService.AddNewAction(5, "Presence", "WorklogUpdate");
-            actionService.AddNewAction(6, "Time spent", "WorklogUpdate");
-            actionService.AddNewAction(7, "Comment", "WorklogUpdate");
-            actionService.AddNewAction(8, "Exit", "WorklogUpdate");
+            actionService.AddNewAction(1, "Worklogs per month", "Report");
+            actionService.AddNewAction(2, "Hours and salary per month", "Report");
+            actionService.AddNewAction(3, "Time spent on project", "Report");
+            actionService.AddNewAction(4, "Worklogs per project", "Report");
+            actionService.AddNewAction(5, "Time spent on task", "Report");
+            actionService.AddNewAction(6, "Worklogs per task", "Report");
+            actionService.AddNewAction(7, "Exit", "Report");
 
             return actionService;
         }
