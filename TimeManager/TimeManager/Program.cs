@@ -30,7 +30,7 @@ namespace TimeManager
                 {
                     case '1':
                         bool repeatProject = true;
-                        while(repatProject)
+                        while(repeatProject)
                         {
                             Console.Clear();
                             Console.WriteLine("Please let me know what you want to do: ");
