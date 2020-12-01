@@ -46,6 +46,14 @@ namespace TimeManager
                 Console.WriteLine("Project not found");
         }
 
+        public void ShowAll()
+        {
+            foreach (var project in Projects)
+            {
+                Console.WriteLine(project);
+            }
+        }
+
         public void Remove(int id)
         {
             Project projectToRemove = null;

@@ -72,7 +72,7 @@ namespace TimeManager
 
                                 case '4':
                                     Console.Clear();
-                                    Console.WriteLine("Show all projects");
+                                    projectService.ShowAll();
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
