@@ -66,7 +66,9 @@ namespace TimeManager
 
                                 case '4':
                                     Console.Clear();
-                                    Console.WriteLine("Details");
+                                    var projectId = Helpers.GetIntNumber("Please enter project id");
+                                    projectService.GetProjectDetails(projectId);
+                                    Console.WriteLine("Press any key to go back...");
                                     Console.ReadKey();
                                     break;
 
@@ -117,14 +119,6 @@ namespace TimeManager
                 }
             }
 
-            // Użytkownik dostaje możliwość wyboru akcji
-
-            // 1. Operacje na projektach (Project)
-            //  1.1 Tworzenie nowego projektu
-            //      1.1.1 Wprowadzenie nazwy projektu
-            //      1.1.2 Wprowadzenie numeru SAP
-            //      1.1.3 Wprowadzenie opisu projektu - stan projektu inicjalnie to Projektowanie
-            //      1.1.4 Zwrócenie Id projektu i wyświetlenie jego podsumowania
 
             //  1.2 Modyfikacja projektu
             //      1.2.1 Wprowadzenie Id lub nazwy projektu

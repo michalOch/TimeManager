@@ -24,20 +24,20 @@ namespace TimeManager
             double value = 0.0;
             do
             {
-                GetStringValue(message);
-                double.TryParse(message, out value);
+                var stringValue = GetStringValue(message);
+                double.TryParse(stringValue, out value);
 
             } while (value <= 0);
             return value;
         }
 
-        public static double GetIntNumber(string message)
+        public static int GetIntNumber(string message)
         {
             int value = 0;
             do
             {
-                GetStringValue(message);
-                int.TryParse(message, out value);
+                var stringValue = GetStringValue(message);
+                int.TryParse(stringValue, out value);
             } while (value <= 0);
             return value;
         }

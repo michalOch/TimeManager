@@ -12,5 +12,10 @@ namespace TimeManager
         public string Description { get; set; }
         public State State { get; set; }
         public List<string> Tasks { get; set; }
+
+        public override string ToString()
+        {
+            return $"Project id: {this.Id}\nName: {this.Name}\nExternal Id: {this.ExternalId}\nDescription: {this.Description}";
+        }
     }
 }

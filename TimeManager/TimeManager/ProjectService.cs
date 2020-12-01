@@ -30,5 +30,22 @@ namespace TimeManager
             counter++;
             return newProject.Id;
         }
+
+        public void GetProjectDetails(int id)
+        {
+            Project existingProject = new Project();
+            foreach (var project in Projects)
+            {
+                if(project.Id == id)    
+                    existingProject = project;
+                else 
+                    existingProject = null;
+            }
+
+            if(existingProject != null)
+                Console.WriteLine(existingProject);
+            else
+                Console.WriteLine("Project not found");
+        }
     }
 }
