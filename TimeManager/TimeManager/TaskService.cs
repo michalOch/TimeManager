@@ -101,9 +101,9 @@ namespace TimeManager
         public int AddNewTask()
         {
             var id = TaskService.counter + 1;
-            var name = Helpers.GetStringValue("1. Please enter new project name:");
-            var description = Helpers.GetStringValue("2. Please short describe your project:");
-            var estimatedHours = Helpers.GetDoubleNumber("3. Please enter estimated hours for that task:");
+            var name = Helpers.GetStringValue("1. Please enter new task name:");
+            var description = Helpers.GetStringValue("2. Please short describe your task:");
+            var estimatedHours = Helpers.GetDoubleNumber("3. Please enter estimated hours for task:");
 
             Task newTask = new Task()
             {
