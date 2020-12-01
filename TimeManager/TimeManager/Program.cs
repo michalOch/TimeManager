@@ -112,7 +112,9 @@ namespace TimeManager
                             {
                                 case '1':
                                     Console.Clear();
-                                    Console.WriteLine("Add new task");
+                                    var id = taskService.AddNewTask();
+                                    Console.Clear();
+                                    Console.WriteLine($"You have successfully create new task with id: {id}");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;

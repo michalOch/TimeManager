@@ -10,5 +10,10 @@ namespace TimeManager
         public string Name { get; set; }
         public string Description { get; set; }
         public double EstimatedHours { get; set; }
+
+        public override string ToString()
+        {
+            return $"Task id: {this.Id}\nName: {this.Name}\nDescription: {this.Description}\nEstimated Hours: {this.EstimatedHours}\n" ;
+        }
     }
 }
