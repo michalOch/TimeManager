@@ -13,7 +13,7 @@ namespace TimeManager
             TaskService taskService = new TaskService();
             WorkLogService workLogService = new WorkLogService();
             var repeat = true;
-            Console.WriteLine("Welcome to the Time Managment App");
+            Console.WriteLine("Welcome to the Time Managment App\n");
 
             while(repeat)
             {
@@ -33,7 +33,7 @@ namespace TimeManager
                         while(repeatProject)
                         {
                             Console.Clear();
-                            Console.WriteLine("Please let me know what you want to do: ");
+                            Console.WriteLine("Please let me know what you want to do: \n");
                             var projectMenu = actionService.GetMenuActionsByMenuName("Project");
                             for (int i = 0; i < projectMenu.Count; i++)
                             {
@@ -95,8 +95,64 @@ namespace TimeManager
                         break;
 
                     case '2':
-                        Console.Clear();
-                        Console.WriteLine("Tasks operations");
+                        bool repeatTask = true;
+                        while (repeatTask)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please let me know what you want to do: \n");
+                            var taskMenu = actionService.GetMenuActionsByMenuName("Task");
+                            for (int i = 0; i < taskMenu.Count; i++)
+                            {
+                                Console.WriteLine($"{taskMenu[i].Id}. {taskMenu[i].Name}");
+                            }
+                            var projectOperation = Console.ReadKey();
+
+                            Console.WriteLine("------------------------------------");
+                            switch (projectOperation.KeyChar)
+                            {
+                                case '1':
+                                    Console.Clear();
+                                    Console.WriteLine("Add new task");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '2':
+                                    Console.Clear();
+                                    Console.WriteLine("Remove task");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '3':
+                                    Console.Clear();
+                                    Console.WriteLine("Show details");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '4':
+                                    Console.Clear();
+                                    Console.WriteLine("Show all tasks");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '5':
+                                    Console.Clear();
+                                    Console.WriteLine("Closing...");
+                                    repeatProject = false;
+                                    Console.Clear();
+                                    break;
+
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("You have chosen wrong operation");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    break;
+                            }
+                        }
                         break;
 
                     case '3':
@@ -208,12 +264,14 @@ namespace TimeManager
             actionService.AddNewAction(1, "Add new task", "Task");
             actionService.AddNewAction(2, "Remove task", "Task");
             actionService.AddNewAction(3, "Details", "Task");
-            actionService.AddNewAction(4, "Exit", "Task");
+            actionService.AddNewAction(4, "Show tasks", "Task");
+            actionService.AddNewAction(5, "Exit", "Task");
 
             actionService.AddNewAction(1, "Add new log", "Worklog");
             actionService.AddNewAction(2, "Remove log", "Worklog");
             actionService.AddNewAction(3, "Details", "Worklog");
-            actionService.AddNewAction(4, "Exit", "Worklog");
+            actionService.AddNewAction(4, "Show all logs", "Worklog");
+            actionService.AddNewAction(5, "Exit", "Worklog");
 
             actionService.AddNewAction(1, "Worklogs per month", "Report");
             actionService.AddNewAction(2, "Hours and salary per month", "Report");
