@@ -105,10 +105,10 @@ namespace TimeManager
                             {
                                 Console.WriteLine($"{taskMenu[i].Id}. {taskMenu[i].Name}");
                             }
-                            var projectOperation = Console.ReadKey();
+                            var taskOeration = Console.ReadKey();
 
                             Console.WriteLine("------------------------------------");
-                            switch (projectOperation.KeyChar)
+                            switch (taskOeration.KeyChar)
                             {
                                 case '1':
                                     Console.Clear();
@@ -148,7 +148,7 @@ namespace TimeManager
                                 case '5':
                                     Console.Clear();
                                     Console.WriteLine("Closing...");
-                                    repeatProject = false;
+                                    repeatTask = false;
                                     Console.Clear();
                                     break;
 
@@ -163,8 +163,66 @@ namespace TimeManager
                         break;
 
                     case '3':
-                        Console.Clear();
-                        Console.WriteLine("Worklogs operations");
+                        bool repeatLog = true;
+                        while (repeatLog)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please let me know what you want to do: \n");
+                            var worklogMenu = actionService.GetMenuActionsByMenuName("Task");
+                            for (int i = 0; i < worklogMenu.Count; i++)
+                            {
+                                Console.WriteLine($"{worklogMenu[i].Id}. {worklogMenu[i].Name}");
+                            }
+                            var projectOperation = Console.ReadKey();
+
+                            Console.WriteLine("------------------------------------");
+                            switch (projectOperation.KeyChar)
+                            {
+                                case '1':
+                                    Console.Clear();
+                                    Console.WriteLine("Add new worklog");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '2':
+                                    Console.Clear();
+                                    Console.WriteLine("Remove worklog");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '3':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show details");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '4':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show all logs - for month ?");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '5':
+                                    Console.Clear();
+                                    Console.WriteLine("Closing...");
+                                    repeatLog = false;
+                                    Console.Clear();
+                                    break;
+
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("You have chosen wrong operation");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    break;
+                            }
+                        }
                         break;
 
                     case '4':
@@ -186,27 +244,6 @@ namespace TimeManager
                         break;
                 }
             }
-
-            // 2. Operacja na zadaniach (Task)
-            //  2.1 Tworzenie nowego zadania do danego projektu
-            //      2.1.1 Wprowadzenie nazwy projektu
-            //      2.1.1 Wprowadzenie nazwy zadania
-            //      2.1.2 Wprowadzenie opisu zadania
-            //      2.1.3 Wprowadzenie estymacji godzin dla zadania
-            //      2.1.4 Stan zadania ustalony inicjalnie na nowe 
-            //      2.1.5 Zwrócenie Id taska i wyświetlenie podsumowania
-
-            //  2.2 Usunięcie zadania
-            //      2.3.1 Wprowadzenie Id zadania            
-            //      2.3.2 Usunięcie zadania o wskazanym Id
-
-            //  2.3 Szczególy danego zadania
-            //      1.4.1 Wprowadzenie Id lub nazwy projektu
-            //      1.4.2 Wyświetlenie szczegółow zadania 
-
-            //  2.4 Lista wszystkich tasków dla danego id projektu 
-            //      1.5.1 Wprowadzenie Id lub nazwy projektu
-            //      1.5.2 Wyświetlenie listy tasków dla danego projektu
 
 
             // 3. Operacje na wpisach godzinowych (WorkLog)
