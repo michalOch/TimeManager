@@ -15,7 +15,7 @@ namespace TimeManager
 
         public override string ToString()
         {
-            return $"Project id: {this.Id}\nName: {this.Name}\nExternal Id: {this.ExternalId}\nDescription: {this.Description}";
+            return $"Project id: {this.Id}\nName: {this.Name}\nExternal Id: {this.ExternalId}\nDescription: {this.Description}\n";
         }
     }
 }
