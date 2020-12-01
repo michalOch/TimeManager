@@ -60,19 +60,13 @@ namespace TimeManager
 
                                 case '3':
                                     Console.Clear();
-                                    Console.WriteLine("Update");
-                                    Console.ReadKey();
-                                    break;
-
-                                case '4':
-                                    Console.Clear();
                                     var projectId = Helpers.GetIntNumber("Please enter project id");
                                     projectService.GetProjectDetails(projectId);
                                     Console.WriteLine("Press any key to go back...");
                                     Console.ReadKey();
                                     break;
 
-                                case '5':
+                                case '4':
                                     Console.Clear();
                                     Console.WriteLine("Closing...");
                                     repatProject = false;
@@ -211,21 +205,18 @@ namespace TimeManager
 
             actionService.AddNewAction(1, "Add new project", "Project");
             actionService.AddNewAction(2, "Remove project", "Project");
-            actionService.AddNewAction(3, "Update project", "Project");
-            actionService.AddNewAction(4, "Details", "Project");
-            actionService.AddNewAction(5, "Exit", "Project");
+            actionService.AddNewAction(3, "Details", "Project");
+            actionService.AddNewAction(4, "Exit", "Project");
 
             actionService.AddNewAction(1, "Add new task", "Task");
             actionService.AddNewAction(2, "Remove task", "Task");
-            actionService.AddNewAction(3, "Update task", "Task");
-            actionService.AddNewAction(4, "Details", "Task");
-            actionService.AddNewAction(5, "Exit", "Task");
+            actionService.AddNewAction(3, "Details", "Task");
+            actionService.AddNewAction(4, "Exit", "Task");
 
             actionService.AddNewAction(1, "Add new log", "Worklog");
             actionService.AddNewAction(2, "Remove log", "Worklog");
-            actionService.AddNewAction(3, "Update log", "Worklog");
-            actionService.AddNewAction(4, "Details", "Worklog");
-            actionService.AddNewAction(5, "Exit", "Worklog");
+            actionService.AddNewAction(3, "Details", "Worklog");
+            actionService.AddNewAction(4, "Exit", "Worklog");
 
             actionService.AddNewAction(1, "Worklogs per month", "Report");
             actionService.AddNewAction(2, "Hours and salary per month", "Report");
