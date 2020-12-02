@@ -20,6 +20,7 @@ namespace TimeManager
             _projectService = projectService;
             _taskService = taskService;
             WorkLogs = new List<WorkLog>();
+            CreateMockData();
         }
 
         public int AddNewLog(bool showLastlog = false)
@@ -98,7 +99,7 @@ namespace TimeManager
             if (existingLog != null)
                 Console.WriteLine(existingLog);
             else
-                Console.WriteLine("Project not found");
+                Console.WriteLine("Worklog not found");
         }
 
         public void CreateMockData()
