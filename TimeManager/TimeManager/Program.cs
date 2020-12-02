@@ -181,7 +181,7 @@ namespace TimeManager
                                 case '1':
  
                                     Console.Clear();
-                                    var id = workLogService.AddNewLog(projectService, taskService);
+                                    var id = workLogService.AddNewLog(projectService, taskService, true);
                                     Console.Clear();
                                     Console.WriteLine($"You have successfully create new worklog with id: {id}");
                                     Console.WriteLine("Press any key to continue...");

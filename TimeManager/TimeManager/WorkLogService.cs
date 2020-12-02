@@ -13,10 +13,13 @@ namespace TimeManager
             WorkLogs = new List<WorkLog>();
         }
 
-        public int AddNewLog(ProjectService projectService, TaskService taskService)
+        public int AddNewLog(ProjectService projectService, TaskService taskService, bool showLastlog = false)
         {
+            if(showLastlog)
+            {
+                ShowLastLog();
+            }
             var id = WorkLogService.counter + 1;
-
             projectService.ShowList();
             var projectId = Helpers.GetIntNumber("1. Please enter project Id:");
             var project = projectService.GetProjectById(projectId);
@@ -65,6 +68,7 @@ namespace TimeManager
         {
             Console.WriteLine("Last worklog:");
             ShowDetails(WorkLogs.Count - 1);
+            Console.WriteLine("--------------------------------------------------\n");
         }
 
         public WorkLog GetLogById(int id)
