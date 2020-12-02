@@ -17,7 +17,7 @@ namespace TimeManager
 
             while(repeat)
             {
-                Console.WriteLine("Please let me know what you want to do: ");
+                Console.WriteLine("Please let me know what you want to do: \n");
                 var mainMenu = actionService.GetMenuActionsByMenuName("Main");
                 for (int i = 0; i < mainMenu.Count; i++)
                 {
@@ -266,29 +266,29 @@ namespace TimeManager
 
         private static MenuActionService Initialize(MenuActionService actionService)
         {
-            actionService.AddNewAction(1, "Projects", "Main");
-            actionService.AddNewAction(2, "Tasks", "Main");
-            actionService.AddNewAction(3, "WorkLogs", "Main");
-            actionService.AddNewAction(4, "Reports", "Main");
-            actionService.AddNewAction(5, "Exit", "Main");
+            actionService.AddNewAction(1, "Operation on Projects", "Main");
+            actionService.AddNewAction(2, "Operation on Tasks", "Main");
+            actionService.AddNewAction(3, "Operation on WorkLogs", "Main");
+            actionService.AddNewAction(4, "Generating Reports", "Main");
+            actionService.AddNewAction(5, "Close", "Main");
 
             actionService.AddNewAction(1, "Add new project", "Project");
             actionService.AddNewAction(2, "Remove project", "Project");
-            actionService.AddNewAction(3, "Details", "Project");
-            actionService.AddNewAction(4, "Show projects", "Project");
-            actionService.AddNewAction(5, "Exit", "Project");
+            actionService.AddNewAction(3, "Show project details", "Project");
+            actionService.AddNewAction(4, "Show all projects", "Project");
+            actionService.AddNewAction(5, "Return", "Project");
 
             actionService.AddNewAction(1, "Add new task", "Task");
             actionService.AddNewAction(2, "Remove task", "Task");
-            actionService.AddNewAction(3, "Details", "Task");
-            actionService.AddNewAction(4, "Show tasks", "Task");
-            actionService.AddNewAction(5, "Exit", "Task");
+            actionService.AddNewAction(3, "Show task details", "Task");
+            actionService.AddNewAction(4, "Show all tasks", "Task");
+            actionService.AddNewAction(5, "Return", "Task");
 
             actionService.AddNewAction(1, "Add new log", "Worklog");
             actionService.AddNewAction(2, "Remove log", "Worklog");
-            actionService.AddNewAction(3, "Details", "Worklog");
+            actionService.AddNewAction(3, "Show log details", "Worklog");
             actionService.AddNewAction(4, "Show all logs", "Worklog");
-            actionService.AddNewAction(5, "Exit", "Worklog");
+            actionService.AddNewAction(5, "Return", "Worklog");
 
             actionService.AddNewAction(1, "Worklogs per month", "Report");
             actionService.AddNewAction(2, "Hours and salary per month", "Report");
@@ -296,7 +296,7 @@ namespace TimeManager
             actionService.AddNewAction(4, "Worklogs per project", "Report");
             actionService.AddNewAction(5, "Time spent on task", "Report");
             actionService.AddNewAction(6, "Worklogs per task", "Report");
-            actionService.AddNewAction(7, "Exit", "Report");
+            actionService.AddNewAction(7, "Return", "Report");
 
             return actionService;
         }
