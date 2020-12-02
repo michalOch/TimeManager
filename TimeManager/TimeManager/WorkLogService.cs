@@ -61,6 +61,11 @@ namespace TimeManager
             counter++;
             return newLog.Id;
         }
+        public void ShowLastLog()
+        {
+            Console.WriteLine("Last worklog:");
+            ShowDetails(WorkLogs.Count - 1);
+        }
 
         public WorkLog GetLogById(int id)
         {
