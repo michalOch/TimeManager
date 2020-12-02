@@ -132,7 +132,7 @@ namespace TimeManager
                 Console.WriteLine("Task not found");
         }
 
-        public void ShowDetails(int id)
+        public Task GetTaskById(int id)
         {
             Task existingTask = null;
             foreach (var task in Tasks)
@@ -140,6 +140,12 @@ namespace TimeManager
                 if (task.Id == id)
                     existingTask = task;
             }
+            return existingTask;
+        }
+
+        public void ShowDetails(int id)
+        {
+            Task existingTask = GetTaskById(id);
 
             if (existingTask != null)
                 Console.WriteLine(existingTask);
@@ -153,6 +159,15 @@ namespace TimeManager
             {
                 Console.WriteLine(task);
             }
+        }
+        public void ShowList()
+        {
+            Console.WriteLine("Avaliable tasks:");
+            foreach (var task in Tasks)
+            {
+                Console.WriteLine($"{task.Id}: {task.Name} ");
+            }
+            Console.WriteLine("--------------------------------------------------\n");
         }
     }
 }

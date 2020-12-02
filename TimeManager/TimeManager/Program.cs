@@ -168,7 +168,7 @@ namespace TimeManager
                         {
                             Console.Clear();
                             Console.WriteLine("Please let me know what you want to do: \n");
-                            var worklogMenu = actionService.GetMenuActionsByMenuName("Task");
+                            var worklogMenu = actionService.GetMenuActionsByMenuName("Worklog");
                             for (int i = 0; i < worklogMenu.Count; i++)
                             {
                                 Console.WriteLine($"{worklogMenu[i].Id}. {worklogMenu[i].Name}");
@@ -179,8 +179,11 @@ namespace TimeManager
                             switch (projectOperation.KeyChar)
                             {
                                 case '1':
+ 
                                     Console.Clear();
-                                    Console.WriteLine("Add new worklog");
+                                    var id = workLogService.AddNewLog(projectService, taskService);
+                                    Console.Clear();
+                                    Console.WriteLine($"You have successfully create new worklog with id: {id}");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;

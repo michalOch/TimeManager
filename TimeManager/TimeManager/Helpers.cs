@@ -6,6 +6,19 @@ namespace TimeManager
 {
     public static class Helpers
     {
+        public static void ShowPresences()
+        {
+            Console.WriteLine("The values of the Presence are:");
+            foreach (Presence val in Enum.GetValues(typeof(Presence)))
+            {
+                if(val != Presence.Undefined)
+                {
+                    Console.WriteLine($"{(int)val}: {val}");
+                }              
+            }
+            Console.WriteLine("--------------------------------------------------\n");
+        }
+
         public static string GetStringValue(string message)
         {
             string value = string.Empty;
@@ -40,6 +53,17 @@ namespace TimeManager
                 int.TryParse(stringValue, out value);
             } while (value <= 0);
             return value;
+        }
+
+        public static DateTime GetDate(string message)
+        {
+            DateTime dateTime;
+            do
+            {
+                var stringValue = GetStringValue(message);
+                DateTime.TryParse(stringValue, out dateTime);
+            } while (dateTime == null);
+            return dateTime;
         }
     }
 }
