@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TimeManager
 {
@@ -16,7 +14,11 @@ namespace TimeManager
 
         public override string ToString()
         {
-            return $"Worklog id: {this.Id}\nProject: {this.Project.Name}\nTask: {this.Task.Name}\nStart date: {this.Date.ToShortDateString()}\nPresence: {Presence}\nTime spent: {TimeSpent}\nComment: {Comment}";
+            var projectName = Project != null ? Project.Name : "-";
+            var taskName = Task != null ? Task.Name : "-";
+            var date = Date != null ? Date.ToShortDateString() : "-";
+
+            return $"Worklog id: {this.Id}\nProject: {projectName}\nTask: {taskName}\nStart date: {date}\nPresence: {Presence}\nTime spent: {TimeSpent}\nComment: {Comment}";
         }
     }
 }
