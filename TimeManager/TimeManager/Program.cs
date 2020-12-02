@@ -190,7 +190,9 @@ namespace TimeManager
 
                                 case '2':
                                     Console.Clear();
-                                    Console.WriteLine("Remove worklog");
+                                    var logIdToRemove = Helpers.GetIntNumber("Please enter worklog id");
+                                    workLogService.Remove(logIdToRemove);
+                                    Console.WriteLine($"Worklog with id: {logIdToRemove} has been successfully removed");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
@@ -198,7 +200,7 @@ namespace TimeManager
                                 case '3':
 
                                     Console.Clear();
-                                    var logIdToShow = Helpers.GetIntNumber("Please enter project id");
+                                    var logIdToShow = Helpers.GetIntNumber("Please enter worklog id");
                                     workLogService.ShowDetails(logIdToShow);
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();

@@ -6,7 +6,6 @@ namespace TimeManager
 {
     public class TaskService
     {
-        // mock value
         public static int counter = 10;
         public List<Task> Tasks { get; set; }
 

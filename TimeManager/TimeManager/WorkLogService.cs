@@ -92,6 +92,16 @@ namespace TimeManager
             return existingLog;
         }
 
+        public void Remove(int id)
+        {
+            WorkLog logToRemove = GetLogById(id);
+
+            if (logToRemove != null)
+                WorkLogs.Remove(logToRemove);
+            else
+                Console.WriteLine("Worklog not found");
+        }
+
         public void ShowDetails(int id)
         {
             WorkLog existingLog = GetLogById(id);
