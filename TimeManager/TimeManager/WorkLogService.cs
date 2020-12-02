@@ -102,6 +102,15 @@ namespace TimeManager
                 Console.WriteLine("Worklog not found");
         }
 
+        public void ShowAll()
+        {
+            foreach (var log in WorkLogs)
+            {
+                Console.WriteLine(log);
+                Console.WriteLine("--------------------------------------------------\n");
+            }
+        }
+
         public void CreateMockData()
         {
 
