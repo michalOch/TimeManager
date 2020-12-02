@@ -11,7 +11,7 @@ namespace TimeManager
             actionService = Initialize(actionService);
             ProjectService projectService = new ProjectService();
             TaskService taskService = new TaskService();
-            WorkLogService workLogService = new WorkLogService();
+            WorkLogService workLogService = new WorkLogService(projectService, taskService);
             var repeat = true;
             Console.WriteLine("Welcome to the Time Managment App\n");
 
@@ -181,7 +181,7 @@ namespace TimeManager
                                 case '1':
  
                                     Console.Clear();
-                                    var id = workLogService.AddNewLog(projectService, taskService, true);
+                                    var id = workLogService.AddNewLog(true);
                                     Console.Clear();
                                     Console.WriteLine($"You have successfully create new worklog with id: {id}");
                                     Console.WriteLine("Press any key to continue...");
