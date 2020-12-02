@@ -198,7 +198,8 @@ namespace TimeManager
                                 case '3':
 
                                     Console.Clear();
-                                    Console.WriteLine("Show details");
+                                    var logIdToShow = Helpers.GetIntNumber("Please enter project id");
+                                    workLogService.ShowDetails(logIdToShow);
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;

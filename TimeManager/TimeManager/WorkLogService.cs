@@ -61,5 +61,26 @@ namespace TimeManager
             counter++;
             return newLog.Id;
         }
+
+        public WorkLog GetLogById(int id)
+        {
+            WorkLog existingLog = null;
+            foreach (var log in WorkLogs)
+            {
+                if (log.Id == id)
+                    existingLog = log;
+            }
+            return existingLog;
+        }
+
+        public void ShowDetails(int id)
+        {
+            WorkLog existingLog = GetLogById(id);
+
+            if (existingLog != null)
+                Console.WriteLine(existingLog);
+            else
+                Console.WriteLine("Project not found");
+        }
     }
 }
