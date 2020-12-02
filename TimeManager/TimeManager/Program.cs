@@ -79,7 +79,6 @@ namespace TimeManager
 
                                 case '5':
                                     Console.Clear();
-                                    Console.WriteLine("Closing...");
                                     repeatProject = false;
                                     Console.Clear();
                                     break;
@@ -147,7 +146,6 @@ namespace TimeManager
 
                                 case '5':
                                     Console.Clear();
-                                    Console.WriteLine("Closing...");
                                     repeatTask = false;
                                     Console.Clear();
                                     break;
@@ -216,7 +214,6 @@ namespace TimeManager
 
                                 case '5':
                                     Console.Clear();
-                                    Console.WriteLine("Closing...");
                                     repeatLog = false;
                                     Console.Clear();
                                     break;
@@ -233,12 +230,11 @@ namespace TimeManager
 
                     case '4':
                         Console.Clear();
-                        Console.WriteLine("Generating reports");
+                        Console.WriteLine("Generating reports...in progress");
                         break;
 
                     case '5':
                         Console.Clear();
-                        Console.WriteLine("Close application");
                         repeat = false;
                         break;
 
@@ -250,36 +246,7 @@ namespace TimeManager
                         break;
                 }
             }
-
-
-            // 3. Operacje na wpisach godzinowych (WorkLog)
-            //  3.1 Dodaj nowy wpis
-            //      3.1.1 Wybierz Projekt
-            //      3.1.2 Wybierz Zadanie
-            //      3.1.3 Wybierz Datę
-            //      3.1.4 Wybierz Obecność(Present, Absent, Remote, Delegation, On Holiday, Sick Leave)
-            //      3.1.5 Czas spędzony (Time Spent)
-            //      3.1.6 Komentrz
-            //      3.1.7 Wyświetl podsumowanie wpisanych danych
-            //      3.1.8 Zwróć Id zadania
-
-            //  3.2 Usuń dany wpisu
-            //      3.2.1 Wprowadzenie Id wpisu 
-            //      3.2.2 Usuń dany wpis
-
-            //  3.3 Szczególy danego wpisu
-            //      1.4.1 Wprowadzenie Id wpisu
-            //      1.4.2 Wyświetlenie szczegółow zadania 
-
-            //  3.4 Lista wszystkich wpisów dla danego projektu
-            //      1.5.1 Wprowadzenie Id lub nazwy projektu
-            //      1.5.2 Wyświetlenie listy wpisów
-
-            //  3.5 Lista wszystkich wpisów dla danego zadania
-            //      1.5.1 Wprowadzenie Id zadania
-            //      1.5.2 Wyświetlenie listy wpisów
-
-
+    
             // 4. Raporty
 
             //  4.1 Wyświetlnie wpisów dla danego miesiąca
