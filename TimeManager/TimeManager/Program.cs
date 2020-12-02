@@ -229,8 +229,82 @@ namespace TimeManager
                         break;
 
                     case '4':
-                        Console.Clear();
-                        Console.WriteLine("Generating reports...in progress");
+                        bool repeatReports = true;
+                        while (repeatReports)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please let me know what you want to do: \n");
+                            var reportsMenu = actionService.GetMenuActionsByMenuName("Report");
+                            for (int i = 0; i < reportsMenu.Count; i++)
+                            {
+                                Console.WriteLine($"{reportsMenu[i].Id}. {reportsMenu[i].Name}");
+                            }
+                            var reportOperation = Console.ReadKey();
+
+                            Console.WriteLine("------------------------------------");
+                            switch (reportOperation.KeyChar)
+                            {
+                                case '1':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show worklogs per month");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '2':
+                                    Console.Clear();
+                                    Console.WriteLine("Show hours and salary per month");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '3':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show time spent on project");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '4':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show worklogs per project");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '5':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show time spent on task");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '6':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show worklogs per task");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
+                                case '7':
+                                    Console.Clear();
+                                    repeatReports = false;
+                                    Console.Clear();
+                                    break;
+
+                                default:
+                                    Console.Clear();
+                                    Console.WriteLine("You have chosen wrong operation");
+                                    Thread.Sleep(500);
+                                    Console.Clear();
+                                    break;
+                            }
+                        }
                         break;
 
                     case '5':
@@ -260,8 +334,6 @@ namespace TimeManager
             //  4.5 Ilość godzin przepracowna nad danym zadaniem 
             //  4.4 Lista wszystkich wpisów dla danego zadania
 
-
-            // 5. Zamknij
         }
 
         private static MenuActionService Initialize(MenuActionService actionService)
