@@ -10,6 +10,7 @@ namespace TimeManager
         public List<WorkLog> WorkLogs { get; set; }
         private ProjectService _projectService;
         private TaskService _taskService;
+        private MockWorkLog _mockWorkLog;
 
         public WorkLogService()
         {
@@ -19,8 +20,14 @@ namespace TimeManager
         {
             _projectService = projectService;
             _taskService = taskService;
+            _mockWorkLog = new MockWorkLog(_projectService, _taskService);
             WorkLogs = new List<WorkLog>();
-            CreateMockData();
+            GetMockData();
+        }
+
+        public void GetMockData()
+        {
+            WorkLogs = _mockWorkLog.CreateMockData();
         }
 
         public int AddNewLog(bool showLastlog = false)
@@ -121,143 +128,5 @@ namespace TimeManager
             }
         }
 
-        public void CreateMockData()
-        {
-
-            WorkLogs = new List<WorkLog>()
-            {
-                new WorkLog()
-                {
-                    Id = 1,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[1],
-                    Date = new DateTime(2020,12,1),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 2,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[1],
-                    Date = new DateTime(2020,12,2),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 3,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[2],
-                    Date = new DateTime(2020,12,3),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 4,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[2],
-                    Date = new DateTime(2020,12,4),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 5,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[3],
-                    Date = new DateTime(2020,12,5),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 6,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[3],
-                    Date = new DateTime(2020,12,6),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 7,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[4],
-                    Date = new DateTime(2020,12,7),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 8,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[4],
-                    Date = new DateTime(2020,12,8),
-                    Presence = Presence.Present,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 9,
-                    Project = null,
-                    Task = null,
-                    Date = new DateTime(2020,12,8),
-                    Presence = Presence.SickLeave,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 10,
-                    Project = null,
-                    Task = null,
-                    Date = new DateTime(2020,12,9),
-                    Presence = Presence.SickLeave,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 11,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[5],
-                    Date = new DateTime(2020,12,11),
-                    Presence = Presence.Delegation,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-
-                new WorkLog()
-                {
-                    Id = 12,
-                    Project = _projectService.Projects[1],
-                    Task = _taskService.Tasks[5],
-                    Date = new DateTime(2020,12,12),
-                    Presence = Presence.Delegation,
-                    TimeSpent = 8,
-                    Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                },
-            };
-        }
     }
 }
