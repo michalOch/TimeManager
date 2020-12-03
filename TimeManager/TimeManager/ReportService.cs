@@ -50,7 +50,7 @@ namespace TimeManager
             var project = _projectService.GetProjectById(projectId);
             Console.Clear();
 
-            if(project != null)
+            if (project != null)
             {
                 foreach (var log in WorkLogs)
                 {
@@ -63,6 +63,34 @@ namespace TimeManager
             }
             else
                 Console.WriteLine("Project not found");
+
+        }
+        public void ShowLogsOnProject()
+        {
+            List<WorkLog> logs = new List<WorkLog>();
+            _projectService.ShowList();
+            var projectId = Helpers.GetIntNumber("1. Please enter project Id:");
+            var project = _projectService.GetProjectById(projectId);
+            Console.Clear();
+
+            Console.WriteLine($"Worklogs for project {project.Name}");
+            Console.WriteLine("--------------------------------------------------\n");
+
+            foreach (var log in WorkLogs)
+            {
+                if (log.Project != null && log.Project.Name == project.Name)
+                {
+                    logs.Add(log);
+                }
+            }
+
+            // Show new list of logs
+            foreach (var log in logs)
+            {
+                Console.WriteLine(log);
+                Console.WriteLine("--------------------------------------------------\n");
+            }
+
         }
 
         public void ShowTimeSpentOnTask()
@@ -92,6 +120,8 @@ namespace TimeManager
             else
                 Console.WriteLine("Project or Task not found");
         }
+
+
 
     }
 }

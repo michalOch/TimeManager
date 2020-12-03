@@ -275,7 +275,7 @@ namespace TimeManager
                                 case '4':
 
                                     Console.Clear();
-                                    Console.WriteLine("Show time spent on task in project");
+                                    reportService.ShowLogsOnProject();
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
@@ -320,11 +320,7 @@ namespace TimeManager
     
             // 4. Raporty
 
-
-            //  4.3 Ilość godzin przepracowna nad danym projektem (id projektu)
             //  4.4 Lista wszystkich wpisów dla danego projektu
-
-            //  4.5 Ilość godzin przepracowna nad danym zadaniem 
             //  4.4 Lista wszystkich wpisów dla danego zadania
 
         }
