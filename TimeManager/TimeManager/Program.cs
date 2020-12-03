@@ -267,7 +267,7 @@ namespace TimeManager
                                 case '3':
 
                                     Console.Clear();
-                                    Console.WriteLine("Show worklogs per project");
+                                    reportService.ShowTimeSpentOnTask();
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
@@ -320,8 +320,6 @@ namespace TimeManager
     
             // 4. Raporty
 
-            //  4.2 Ilość godzin przepracowna w danym miesiacu (w zadanym okresie czasu)
-            //  4.2 Wypłata netto dla danego miesiaca (double stawka godzinowa)
 
             //  4.3 Ilość godzin przepracowna nad danym projektem (id projektu)
             //  4.4 Lista wszystkich wpisów dla danego projektu
@@ -359,9 +357,9 @@ namespace TimeManager
 
             actionService.AddNewAction(1, "Show worklogs in time interval", "Report");
             actionService.AddNewAction(2, "Show time spent on project", "Report");
-            actionService.AddNewAction(3, "Worklogs per project", "Report");
-            actionService.AddNewAction(4, "Time spent on task", "Report");
-            actionService.AddNewAction(5, "Worklogs per task", "Report");
+            actionService.AddNewAction(3, "Show time spent on task", "Report");
+            actionService.AddNewAction(4, "Show logs on project", "Report");
+            actionService.AddNewAction(5, "Show logs on task", "Report");
             actionService.AddNewAction(6, "Return", "Report");
 
             return actionService;

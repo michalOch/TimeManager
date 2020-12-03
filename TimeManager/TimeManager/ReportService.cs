@@ -65,5 +65,33 @@ namespace TimeManager
                 Console.WriteLine("Project not found");
         }
 
+        public void ShowTimeSpentOnTask()
+        {
+            double sum = 0;
+            _projectService.ShowList();
+            var projectId = Helpers.GetIntNumber("1. Please enter project Id:");
+            var project = _projectService.GetProjectById(projectId);
+            Console.Clear();
+
+            _taskService.ShowList();
+            var taskId = Helpers.GetIntNumber("2. Please enter task Id:");
+            var task = _taskService.GetTaskById(taskId);
+            Console.Clear();
+
+            if (project != null)
+            {
+                foreach (var log in WorkLogs)
+                {
+                    if (log.Project != null && log.Task != null && log.Project.Name == project.Name && log.Task.Name == task.Name)
+                        sum += log.TimeSpent;
+                }
+                Console.WriteLine("--------------------------------------------------\n");
+                Console.WriteLine($"Time spent on task {task.Name} in {project.Name} is {sum} hours.\n");
+                Console.WriteLine("--------------------------------------------------\n");
+            }
+            else
+                Console.WriteLine("Project or Task not found");
+        }
+
     }
 }
