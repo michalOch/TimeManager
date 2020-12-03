@@ -8,7 +8,7 @@ namespace TimeManager
         static void Main(string[] args)
         {
             MenuActionService actionService = new MenuActionService();
-            actionService = Initialize(actionService);
+            actionService = Helpers.Initialize(actionService);
             ProjectService projectService = new ProjectService();
             TaskService taskService = new TaskService();
             WorkLogService workLogService = new WorkLogService(projectService, taskService);
@@ -19,13 +19,6 @@ namespace TimeManager
 
             while(repeat)
             {
-                //Console.WriteLine("Please let me know what you want to do: \n");
-                //var mainMenu = actionService.GetMenuActionsByMenuName("Main");
-                //for (int i = 0; i < mainMenu.Count; i++)
-                //{
-                //    Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
-                //}
-
                 Helpers.CreateMenu("Main", actionService);
 
                 var operation = Console.ReadKey();
@@ -37,13 +30,6 @@ namespace TimeManager
                         while(repeatProject)
                         {
                             Console.Clear();
-                            //Console.WriteLine("Please let me know what you want to do: \n");
-                            //var projectMenu = actionService.GetMenuActionsByMenuName("Project");
-                            //for (int i = 0; i < projectMenu.Count; i++)
-                            //{
-                            //    Console.WriteLine($"{projectMenu[i].Id}. {projectMenu[i].Name}");
-                            //}
-
                             Helpers.CreateMenu("Project", actionService);
 
                             var projectOperation = Console.ReadKey();
@@ -105,12 +91,6 @@ namespace TimeManager
                         while (repeatTask)
                         {
                             Console.Clear();
-                            //Console.WriteLine("Please let me know what you want to do: \n");
-                            //var taskMenu = actionService.GetMenuActionsByMenuName("Task");
-                            //for (int i = 0; i < taskMenu.Count; i++)
-                            //{
-                            //    Console.WriteLine($"{taskMenu[i].Id}. {taskMenu[i].Name}");
-                            //}
                             Helpers.CreateMenu("Task", actionService);
                             var taskOeration = Console.ReadKey();
 
@@ -173,13 +153,6 @@ namespace TimeManager
                         while (repeatLog)
                         {
                             Console.Clear();
-                            //Console.WriteLine("Please let me know what you want to do: \n");
-                            //var worklogMenu = actionService.GetMenuActionsByMenuName("Worklog");
-                            //for (int i = 0; i < worklogMenu.Count; i++)
-                            //{
-                            //    Console.WriteLine($"{worklogMenu[i].Id}. {worklogMenu[i].Name}");
-                            //}
-
                             Helpers.CreateMenu("Worklog", actionService);
                             var projectOperation = Console.ReadKey();
 
@@ -243,12 +216,6 @@ namespace TimeManager
                         while (repeatReports)
                         {
                             Console.Clear();
-                            //Console.WriteLine("Please let me know what you want to do: \n");
-                            //var reportsMenu = actionService.GetMenuActionsByMenuName("Report");
-                            //for (int i = 0; i < reportsMenu.Count; i++)
-                            //{
-                            //    Console.WriteLine($"{reportsMenu[i].Id}. {reportsMenu[i].Name}");
-                            //}
                             Helpers.CreateMenu("Report", actionService);
                             var reportOperation = Console.ReadKey();
 
@@ -327,42 +294,5 @@ namespace TimeManager
                 }
             }
         }
-
-        private static MenuActionService Initialize(MenuActionService actionService)
-        {
-            actionService.AddNewAction(1, "Operation on Projects", "Main");
-            actionService.AddNewAction(2, "Operation on Tasks", "Main");
-            actionService.AddNewAction(3, "Operation on WorkLogs", "Main");
-            actionService.AddNewAction(4, "Generating Reports", "Main");
-            actionService.AddNewAction(5, "Close", "Main");
-
-            actionService.AddNewAction(1, "Add new project", "Project");
-            actionService.AddNewAction(2, "Remove project", "Project");
-            actionService.AddNewAction(3, "Show project details", "Project");
-            actionService.AddNewAction(4, "Show all projects", "Project");
-            actionService.AddNewAction(5, "Return", "Project");
-
-            actionService.AddNewAction(1, "Add new task", "Task");
-            actionService.AddNewAction(2, "Remove task", "Task");
-            actionService.AddNewAction(3, "Show task details", "Task");
-            actionService.AddNewAction(4, "Show all tasks", "Task");
-            actionService.AddNewAction(5, "Return", "Task");
-
-            actionService.AddNewAction(1, "Add new log", "Worklog");
-            actionService.AddNewAction(2, "Remove log", "Worklog");
-            actionService.AddNewAction(3, "Show log details", "Worklog");
-            actionService.AddNewAction(4, "Show all logs", "Worklog");
-            actionService.AddNewAction(5, "Return", "Worklog");
-
-            actionService.AddNewAction(1, "Show worklogs in time interval", "Report");
-            actionService.AddNewAction(2, "Show time spent on project", "Report");
-            actionService.AddNewAction(3, "Show time spent on task", "Report");
-            actionService.AddNewAction(4, "Show logs on project", "Report");
-            actionService.AddNewAction(5, "Show logs on task", "Report");
-            actionService.AddNewAction(6, "Return", "Report");
-
-            return actionService;
-        }
-
     }
 }
