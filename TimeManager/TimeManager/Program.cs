@@ -19,12 +19,14 @@ namespace TimeManager
 
             while(repeat)
             {
-                Console.WriteLine("Please let me know what you want to do: \n");
-                var mainMenu = actionService.GetMenuActionsByMenuName("Main");
-                for (int i = 0; i < mainMenu.Count; i++)
-                {
-                    Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
-                }
+                //Console.WriteLine("Please let me know what you want to do: \n");
+                //var mainMenu = actionService.GetMenuActionsByMenuName("Main");
+                //for (int i = 0; i < mainMenu.Count; i++)
+                //{
+                //    Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
+                //}
+
+                Helpers.CreateMenu("Main", actionService);
 
                 var operation = Console.ReadKey();
                 Console.WriteLine("------------------------------------");
@@ -35,12 +37,15 @@ namespace TimeManager
                         while(repeatProject)
                         {
                             Console.Clear();
-                            Console.WriteLine("Please let me know what you want to do: \n");
-                            var projectMenu = actionService.GetMenuActionsByMenuName("Project");
-                            for (int i = 0; i < projectMenu.Count; i++)
-                            {
-                                Console.WriteLine($"{projectMenu[i].Id}. {projectMenu[i].Name}");
-                            }
+                            //Console.WriteLine("Please let me know what you want to do: \n");
+                            //var projectMenu = actionService.GetMenuActionsByMenuName("Project");
+                            //for (int i = 0; i < projectMenu.Count; i++)
+                            //{
+                            //    Console.WriteLine($"{projectMenu[i].Id}. {projectMenu[i].Name}");
+                            //}
+
+                            Helpers.CreateMenu("Project", actionService);
+
                             var projectOperation = Console.ReadKey();
 
                             Console.WriteLine("------------------------------------");
@@ -100,12 +105,13 @@ namespace TimeManager
                         while (repeatTask)
                         {
                             Console.Clear();
-                            Console.WriteLine("Please let me know what you want to do: \n");
-                            var taskMenu = actionService.GetMenuActionsByMenuName("Task");
-                            for (int i = 0; i < taskMenu.Count; i++)
-                            {
-                                Console.WriteLine($"{taskMenu[i].Id}. {taskMenu[i].Name}");
-                            }
+                            //Console.WriteLine("Please let me know what you want to do: \n");
+                            //var taskMenu = actionService.GetMenuActionsByMenuName("Task");
+                            //for (int i = 0; i < taskMenu.Count; i++)
+                            //{
+                            //    Console.WriteLine($"{taskMenu[i].Id}. {taskMenu[i].Name}");
+                            //}
+                            Helpers.CreateMenu("Task", actionService);
                             var taskOeration = Console.ReadKey();
 
                             Console.WriteLine("------------------------------------");
@@ -167,12 +173,14 @@ namespace TimeManager
                         while (repeatLog)
                         {
                             Console.Clear();
-                            Console.WriteLine("Please let me know what you want to do: \n");
-                            var worklogMenu = actionService.GetMenuActionsByMenuName("Worklog");
-                            for (int i = 0; i < worklogMenu.Count; i++)
-                            {
-                                Console.WriteLine($"{worklogMenu[i].Id}. {worklogMenu[i].Name}");
-                            }
+                            //Console.WriteLine("Please let me know what you want to do: \n");
+                            //var worklogMenu = actionService.GetMenuActionsByMenuName("Worklog");
+                            //for (int i = 0; i < worklogMenu.Count; i++)
+                            //{
+                            //    Console.WriteLine($"{worklogMenu[i].Id}. {worklogMenu[i].Name}");
+                            //}
+
+                            Helpers.CreateMenu("Worklog", actionService);
                             var projectOperation = Console.ReadKey();
 
                             Console.WriteLine("------------------------------------");
@@ -235,12 +243,13 @@ namespace TimeManager
                         while (repeatReports)
                         {
                             Console.Clear();
-                            Console.WriteLine("Please let me know what you want to do: \n");
-                            var reportsMenu = actionService.GetMenuActionsByMenuName("Report");
-                            for (int i = 0; i < reportsMenu.Count; i++)
-                            {
-                                Console.WriteLine($"{reportsMenu[i].Id}. {reportsMenu[i].Name}");
-                            }
+                            //Console.WriteLine("Please let me know what you want to do: \n");
+                            //var reportsMenu = actionService.GetMenuActionsByMenuName("Report");
+                            //for (int i = 0; i < reportsMenu.Count; i++)
+                            //{
+                            //    Console.WriteLine($"{reportsMenu[i].Id}. {reportsMenu[i].Name}");
+                            //}
+                            Helpers.CreateMenu("Report", actionService);
                             var reportOperation = Console.ReadKey();
 
                             Console.WriteLine("------------------------------------");
@@ -283,7 +292,7 @@ namespace TimeManager
                                 case '5':
 
                                     Console.Clear();
-                                    Console.WriteLine("Show worklogs per task in project");
+                                    reportService.ShowLogsOnTask();
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
@@ -317,12 +326,6 @@ namespace TimeManager
                         break;
                 }
             }
-    
-            // 4. Raporty
-
-            //  4.4 Lista wszystkich wpisów dla danego projektu
-            //  4.4 Lista wszystkich wpisów dla danego zadania
-
         }
 
         private static MenuActionService Initialize(MenuActionService actionService)
