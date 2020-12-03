@@ -48,16 +48,16 @@ namespace TimeManager
 
                                 case '2':
                                     Console.Clear();
-                                    var projectIdToRemove = Helpers.GetIntNumber("Please enter project id");
+                                    var projectIdToRemove = Helpers.GetIntNumber("Please enter project id:");
                                     projectService.Remove(projectIdToRemove);
-                                    Console.WriteLine($"Project with id: {projectIdToRemove} has been successfully removed");
+                                    Console.WriteLine($"Project with id: {projectIdToRemove} has been successfully removed.");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
 
                                 case '3':
                                     Console.Clear();
-                                    var projectIdToShow = Helpers.GetIntNumber("Please enter project id");
+                                    var projectIdToShow = Helpers.GetIntNumber("Please enter project id:");
                                     projectService.ShowDetails(projectIdToShow);
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
@@ -71,14 +71,13 @@ namespace TimeManager
                                     break;
 
                                 case '5':
-                                    Console.Clear();
                                     repeatProject = false;
                                     Console.Clear();
                                     break;
 
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("You have chosen wrong operation");
+                                    Console.WriteLine("You have chosen wrong operation.");
                                     Thread.Sleep(500);
                                     Console.Clear();
                                     break;
@@ -108,9 +107,9 @@ namespace TimeManager
 
                                 case '2':
                                     Console.Clear();
-                                    var taskIdToRemove = Helpers.GetIntNumber("Please enter task id");
+                                    var taskIdToRemove = Helpers.GetIntNumber("Please enter task id:");
                                     taskService.Remove(taskIdToRemove);
-                                    Console.WriteLine($"Task with id: {taskIdToRemove} has been successfully removed");
+                                    Console.WriteLine($"Task with id: {taskIdToRemove} has been successfully removed.");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
@@ -118,7 +117,7 @@ namespace TimeManager
                                 case '3':
 
                                     Console.Clear();
-                                    var taskIdToShow = Helpers.GetIntNumber("Please enter task id");
+                                    var taskIdToShow = Helpers.GetIntNumber("Please enter task id:");
                                     taskService.ShowDetails(taskIdToShow);
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
@@ -133,14 +132,13 @@ namespace TimeManager
                                     break;
 
                                 case '5':
-                                    Console.Clear();
                                     repeatTask = false;
                                     Console.Clear();
                                     break;
 
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("You have chosen wrong operation");
+                                    Console.WriteLine("You have chosen wrong operation.");
                                     Thread.Sleep(500);
                                     Console.Clear();
                                     break;
@@ -164,16 +162,16 @@ namespace TimeManager
                                     Console.Clear();
                                     var id = workLogService.AddNewLog(true);
                                     Console.Clear();
-                                    Console.WriteLine($"You have successfully create new worklog with id: {id}");
+                                    Console.WriteLine($"You have successfully create new worklog with id: {id}.");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
 
                                 case '2':
                                     Console.Clear();
-                                    var logIdToRemove = Helpers.GetIntNumber("Please enter worklog id");
+                                    var logIdToRemove = Helpers.GetIntNumber("Please enter worklog id:");
                                     workLogService.Remove(logIdToRemove);
-                                    Console.WriteLine($"Worklog with id: {logIdToRemove} has been successfully removed");
+                                    Console.WriteLine($"Worklog with id: {logIdToRemove} has been successfully removed.");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
@@ -181,7 +179,7 @@ namespace TimeManager
                                 case '3':
 
                                     Console.Clear();
-                                    var logIdToShow = Helpers.GetIntNumber("Please enter worklog id");
+                                    var logIdToShow = Helpers.GetIntNumber("Please enter worklog id:");
                                     workLogService.ShowDetails(logIdToShow);
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
@@ -196,14 +194,13 @@ namespace TimeManager
                                     break;
 
                                 case '5':
-                                    Console.Clear();
                                     repeatLog = false;
                                     Console.Clear();
                                     break;
 
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("You have chosen wrong operation");
+                                    Console.WriteLine("You have chosen wrong operation.");
                                     Thread.Sleep(500);
                                     Console.Clear();
                                     break;
@@ -265,14 +262,13 @@ namespace TimeManager
                                     break;
 
                                 case '6':
-                                    Console.Clear();
                                     repeatReports = false;
                                     Console.Clear();
                                     break;
 
                                 default:
                                     Console.Clear();
-                                    Console.WriteLine("You have chosen wrong operation");
+                                    Console.WriteLine("You have chosen wrong operation.");
                                     Thread.Sleep(500);
                                     Console.Clear();
                                     break;
