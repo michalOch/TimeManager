@@ -12,6 +12,8 @@ namespace TimeManager
             ProjectService projectService = new ProjectService();
             TaskService taskService = new TaskService();
             WorkLogService workLogService = new WorkLogService(projectService, taskService);
+            ReportService reportService = new ReportService(workLogService);
+
             var repeat = true;
             Console.WriteLine("Welcome to the Time Managment App\n");
 
@@ -247,19 +249,14 @@ namespace TimeManager
                                 case '1':
 
                                     Console.Clear();
-                                    Console.WriteLine("Show worklogs per month");
+                                    DateTime from = Helpers.GetDate("Please enter timesheet start time (yyyy-mm-dd): ");
+                                    DateTime to = Helpers.GetDate("Please enter timesheet end time (yyyy-mm-dd): ");
+                                    reportService.ShowLogs(from, to);
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
 
                                 case '2':
-                                    Console.Clear();
-                                    Console.WriteLine("Show hours and salary per month");
-                                    Console.WriteLine("Press any key to continue...");
-                                    Console.ReadKey();
-                                    break;
-
-                                case '3':
 
                                     Console.Clear();
                                     Console.WriteLine("Show time spent on project");
@@ -267,7 +264,7 @@ namespace TimeManager
                                     Console.ReadKey();
                                     break;
 
-                                case '4':
+                                case '3':
 
                                     Console.Clear();
                                     Console.WriteLine("Show worklogs per project");
@@ -275,23 +272,23 @@ namespace TimeManager
                                     Console.ReadKey();
                                     break;
 
+                                case '4':
+
+                                    Console.Clear();
+                                    Console.WriteLine("Show time spent on task in project");
+                                    Console.WriteLine("Press any key to continue...");
+                                    Console.ReadKey();
+                                    break;
+
                                 case '5':
 
                                     Console.Clear();
-                                    Console.WriteLine("Show time spent on task");
+                                    Console.WriteLine("Show worklogs per task in project");
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
 
                                 case '6':
-
-                                    Console.Clear();
-                                    Console.WriteLine("Show worklogs per task");
-                                    Console.WriteLine("Press any key to continue...");
-                                    Console.ReadKey();
-                                    break;
-
-                                case '7':
                                     Console.Clear();
                                     repeatReports = false;
                                     Console.Clear();
@@ -363,12 +360,11 @@ namespace TimeManager
             actionService.AddNewAction(5, "Return", "Worklog");
 
             actionService.AddNewAction(1, "Worklogs per month", "Report");
-            actionService.AddNewAction(2, "Hours and salary per month", "Report");
-            actionService.AddNewAction(3, "Time spent on project", "Report");
-            actionService.AddNewAction(4, "Worklogs per project", "Report");
-            actionService.AddNewAction(5, "Time spent on task", "Report");
-            actionService.AddNewAction(6, "Worklogs per task", "Report");
-            actionService.AddNewAction(7, "Return", "Report");
+            actionService.AddNewAction(2, "Time spent on project", "Report");
+            actionService.AddNewAction(3, "Worklogs per project", "Report");
+            actionService.AddNewAction(4, "Time spent on task", "Report");
+            actionService.AddNewAction(5, "Worklogs per task", "Report");
+            actionService.AddNewAction(6, "Return", "Report");
 
             return actionService;
         }

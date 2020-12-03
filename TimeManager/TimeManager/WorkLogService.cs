@@ -6,7 +6,8 @@ namespace TimeManager
 {
     public class WorkLogService
     {
-        public static int counter = 0;
+        // Based on mock data
+        public static int counter = 41;
         public List<WorkLog> WorkLogs { get; set; }
         private ProjectService _projectService;
         private TaskService _taskService;
