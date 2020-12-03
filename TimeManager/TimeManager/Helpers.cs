@@ -65,5 +65,15 @@ namespace TimeManager
             } while (dateTime == null);
             return dateTime;
         }
+
+        public static void CreateMenu(string menuName, MenuActionService actionService)
+        {
+            Console.WriteLine("Please let me know what you want to do: \n");
+            var mainMenu = actionService.GetMenuActionsByMenuName(menuName);
+            for (int i = 0; i < mainMenu.Count; i++)
+            {
+                Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
+            }
+        }
     }
 }
