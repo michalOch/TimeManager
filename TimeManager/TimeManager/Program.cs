@@ -12,7 +12,7 @@ namespace TimeManager
             ProjectService projectService = new ProjectService();
             TaskService taskService = new TaskService();
             WorkLogService workLogService = new WorkLogService(projectService, taskService);
-            ReportService reportService = new ReportService(workLogService);
+            ReportService reportService = new ReportService(workLogService,projectService, taskService);
 
             var repeat = true;
             Console.WriteLine("Welcome to the Time Managment App\n");
@@ -259,7 +259,7 @@ namespace TimeManager
                                 case '2':
 
                                     Console.Clear();
-                                    Console.WriteLine("Show time spent on project");
+                                    reportService.ShowTimeSpentOnProject();
                                     Console.WriteLine("Press any key to continue...");
                                     Console.ReadKey();
                                     break;
@@ -320,8 +320,6 @@ namespace TimeManager
     
             // 4. Raporty
 
-            //  4.1 Wyświetlnie wpisów dla danego miesiąca
-
             //  4.2 Ilość godzin przepracowna w danym miesiacu (w zadanym okresie czasu)
             //  4.2 Wypłata netto dla danego miesiaca (double stawka godzinowa)
 
@@ -359,8 +357,8 @@ namespace TimeManager
             actionService.AddNewAction(4, "Show all logs", "Worklog");
             actionService.AddNewAction(5, "Return", "Worklog");
 
-            actionService.AddNewAction(1, "Worklogs per month", "Report");
-            actionService.AddNewAction(2, "Time spent on project", "Report");
+            actionService.AddNewAction(1, "Show worklogs in time interval", "Report");
+            actionService.AddNewAction(2, "Show time spent on project", "Report");
             actionService.AddNewAction(3, "Worklogs per project", "Report");
             actionService.AddNewAction(4, "Time spent on task", "Report");
             actionService.AddNewAction(5, "Worklogs per task", "Report");
